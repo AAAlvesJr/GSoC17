@@ -30,12 +30,13 @@ public:
 	/**
 	 * @brief      default constructor
 	 */
-	FunctionWrapperBase() {
+	FunctionWrapperBase()=delete;
+    /*{
 
 		for (size_t i = 0; i < N; i++)
 			fPars[i] = 0 ;
 
-	}
+	}*/
 
 	/**
 	 * @brief      {par...} constructor
@@ -73,7 +74,7 @@ public:
 
 
 
-	virtual ~FunctionWrapperBase(){};
+	//virtual ~FunctionWrapperBase(){};
 
 	/**
 	 * @brief      Gets the pars.

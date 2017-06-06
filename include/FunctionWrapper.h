@@ -43,6 +43,12 @@ public:
           fFunctor(fptr)
     {}
 
+    FunctionWrapper(ParametricFunctor_t const& fctor, std::array<double,N> const& list):
+            FunctionWrapperBase<FunctionWrapper<N>, double, N>(list),
+            fFunctor(fctor)
+      {}
+
+
     /**
      * @brief      { function_description }
      *
