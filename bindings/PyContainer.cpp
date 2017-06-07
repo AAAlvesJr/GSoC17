@@ -7,8 +7,6 @@
 
 
 //model
-#include <FunctionWrapperBase.h>
-#include <FunctionWrapper.h>
 #include <Types.h>
 
 //std
@@ -30,6 +28,13 @@ namespace py = pybind11;
 //bindings
 PYBIND11_MODULE(HydraContainerWrapper, m) {
 
-
-
+	py::class_<Vector4R>(m,"Vector4R")
+		.def( py::init<>() )
+		.def( py::init<double, double, double, double>() )
+		.def( py::init<std::array<double, 4> const&>() )
+		.def("get", &Vector4R::get)
+		.def("set", &Vector4R::set)
+		.def("R", &Vector4R::set)
+		.def("__getitem__",[](Vector4R const& v){  } )
+		.def("__setitem__",);
 }
