@@ -9,4 +9,6 @@ include_directories(${CMAKE_CURRENT_SOURCE_DIR}/include ${CMAKE_CURRENT_SOURCE_D
 
 
 add_subdirectory(pybind11)
-pybind11_add_module(PyHydraModel bindings/PyFunctionWrapperBase.cpp)
+pybind11_add_module(HydraFunctionWrapper bindings/PyFunctionWrapper.cpp)
+pybind11_add_module(HydraContainerWrapper bindings/PyContainerWrapper.cpp)
+
