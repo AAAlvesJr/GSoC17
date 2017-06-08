@@ -37,7 +37,7 @@ PYBIND11_MODULE(HydraContainerWrapper, m) {
 		.def( py::init<Vector4R const&>() )
 		.def("get", &Vector4R::get)
 		.def("set", &Vector4R::set)
-		.def("R", &Vector4R::R)
+		.def("R",   &Vector4R::R)
 		.def("__getitem__",[](Vector4R const& v, size_t i){ v.get(i);  } )
 		.def("__setitem__",[](Vector4R& v, size_t i,double value ){ v.set(i,value);  } );
 
