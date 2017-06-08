@@ -5,28 +5,38 @@
  *      Author: augalves
  */
 
-#ifndef INCLUDE_VECTOR3R_H_
-#define INCLUDE_VECTOR3R_H_
+#ifndef INCLUDE_VECTOR4R_H_
+#define INCLUDE_VECTOR4R_H_
 
 #include<cmath>
 
 namespace model {
 
-class Vector3R {
+class Vector4R {
 public:
 
-	Vector3R() {};
+	Vector4R() {};
 
 
-	Vector3R(double x, double y, double z, double w) {
+	Vector4R(double x, double y, double z, double w) {
 		fCoords[0] = x;	fCoords[1] = y;
 		fCoords[2] = z;	fCoords[3] = w;
 	}
 
 
-	Vector3R(std::array<double, 4> const& coords) {
-		for (size_t i = 0; i < N; i++)
+	Vector4R(std::array<double, 4> const& coords) {
+		for (size_t i = 0; i < 4; i++)
 			fCoords[i] = coords[i];
+	}
+
+	Vector4R(Vector4R const& other){
+
+		if(this==&other) return ;
+
+		for(size_t i=0; i<4; i++)
+			this->set(i, other.get(i));
+
+			return;
 	}
 
 	const double get(size_t i) const {
@@ -34,7 +44,7 @@ public:
 	}
 
 	void set(size_t i, double value) {
-		return fCoords[i] = value;
+	       fCoords[i] = value;
 	}
 
 	const double R() const {
@@ -44,10 +54,10 @@ public:
 		return sqrt(r);
 	}
 
-	Vector3R& operator+=( Vector3R const& other){
+	Vector4R& operator+=( Vector4R const& other){
 
 		for(size_t i=0; i<4; i++)
-		this->setCoord(i, other.getCoord(i));
+		this->set(i, other.get(i));
 
 		return *this;
 	}
@@ -56,11 +66,11 @@ private:
 	double fCoords[4];
 };
 
-Vector3R operator+(Vector3R one,  Vector3R const& another){
+Vector4R operator+(Vector4R one,  Vector4R const& another){
 	one += another;
 	return one;
 }
 
 } /* namespace model */
 
-#endif /* INCLUDE_VECTOR3R_H_ */
+#endif /* INCLUDE_VECTOR4R_H_ */
